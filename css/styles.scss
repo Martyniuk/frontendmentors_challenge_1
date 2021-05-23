@@ -1,0 +1,142 @@
+@import 'normalize.scss';
+
+// === variables ===
+$mobile: 375px;
+$desktop-min: 376px;
+$desktop-max: 1440px;
+
+$primary-white: #fff;
+$primary-light: hsl(31, 77%, 52%);
+$primary-dark: hsl(184, 100%, 22%);
+$primary-darker:hsl(179, 100%, 13%);
+
+$neutral-transparent: hsla(0, 0%, 100%, 0.75);
+$neutral-light-gray: hsl(0, 0%, 95%);
+// --- / variables ---
+// === mixins ===
+@mixin font-lexdeca {
+    font-family: 'Lexend Deca', sans-serif;
+}
+@mixin font-bigsh {
+    font-family: 'Big Shoulders Display', cursive;
+}
+// --- / mixins ---
+// === common ===
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @include font-lexdeca;
+
+    color: $primary-white;
+}
+
+.wrapper {
+    max-width: $desktop-max;
+    margin: 0 auto;
+}
+// --- / common ---
+
+// === cars ===
+.cars {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+        padding: 48px 36px;
+        flex: 1;
+
+        &__logo {
+            margin: .5rem 0;
+        }
+        &__title {
+            @include font-bigsh;
+
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        &__text {
+            font-weight: 400;
+            line-height: 1.5rem;
+            letter-spacing: .5px;
+            max-width: 70%;
+        }
+        &__btn {
+            padding: 20px 45px;
+            border: 1px solid transparent;
+            border-radius: 40px;
+
+            cursor: pointer;
+
+            &:active {
+                border: 1px solid $primary-white;
+                color: $primary-white;
+            }
+        }
+    }
+
+    @media screen and (min-width: $desktop-min) {
+        flex-direction: row;
+    }
+}
+
+.sedans {
+    background-color: $primary-light;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    button {
+        color: $primary-light;
+
+        &:active {
+            background-color: $primary-light;
+        }
+    }
+
+    @media screen and (min-width: $desktop-min) {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 15px;
+    }
+}
+
+.suvs {
+    background-color: $primary-dark;
+
+    button {
+        color: $primary-dark;
+
+        &:active {
+            background-color: $primary-dark;
+        }
+    }
+}
+
+.luxury {
+    background-color: $primary-darker;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    button {
+        color: $primary-darker;
+
+        &:active {
+            background-color: $primary-dark;
+        }
+    }
+
+    @media screen and (min-width: $desktop-min) {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+}
+
+// --- / cars ---
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
